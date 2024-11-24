@@ -7,8 +7,8 @@ const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json()); // Middleware to parse JSON payloads
 
-// Initialize Firebase Admin SDK
-const serviceAccount = require("./med-transcriber-firebase-adminsdk-zmsfm-cde81a91e0.json");
+require("dotenv").config();
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT); // Load Firebase service account key from environment variable
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
