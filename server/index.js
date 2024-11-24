@@ -24,10 +24,13 @@ const db = admin.firestore();
 // Endpoint to receive POST requests and add data to Firestore
 app.post("/addCall", async (req, res) => {
   try {
+    console.log("Received request body:", req.body); // Log the request payload
+
     const { Name, DateOfBirth, Request, Transcript } = req.body;
 
     // Validate incoming data
     if (!Name || !DateOfBirth || !Request || !Transcript) {
+      console.error("Missing required fields");
       return res.status(400).send("Missing required fields");
     }
 
@@ -40,6 +43,7 @@ app.post("/addCall", async (req, res) => {
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     });
 
+    console.log("Document successfully written with ID: ", docRef.id);
     res.status(200).send({ message: "Call added successfully", id: docRef.id });
   } catch (error) {
     console.error("Error adding call:", error);
