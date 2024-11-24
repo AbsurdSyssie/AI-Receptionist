@@ -26,12 +26,26 @@ app.post("/addCall", async (req, res) => {
   try {
     console.log("Received request body:", req.body); // Log the request payload
 
-    const { Name, DateOfBirth, Request, Transcript } = req.body;
+    const { message } = req.body;
 
-    // Validate incoming data
+    // Validate that the message contains a function-call type and call object
+    if (!message || message.type !== "function-call" || !message.call) {
+      console.error("Invalid message format");
+      return res.status(400).send({ error: "Invalid message format" });
+    }
+
+    // Extract call object from the message
+    const { call } = message;
+
+    // Extract data from the call object
+    const { Name, DateOfBirth, Request, Transcript } = call;
+
+    // Validate extracted data
     if (!Name || !DateOfBirth || !Request || !Transcript) {
-      console.error("Missing required fields");
-      return res.status(400).send("Missing required fields");
+      console.error("Missing required fields in call object");
+      return res
+        .status(400)
+        .send({ error: "Missing required fields in call object" });
     }
 
     // Add data to Firestore
@@ -47,7 +61,7 @@ app.post("/addCall", async (req, res) => {
     res.status(200).send({ message: "Call added successfully", id: docRef.id });
   } catch (error) {
     console.error("Error adding call:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send({ error: "Internal Server Error" });
   }
 });
 
