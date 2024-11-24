@@ -28,45 +28,53 @@ app.post("/addCall", async (req, res) => {
 
     const { message } = req.body;
 
-    // Validate message
-    if (!message || !message.toolCalls || !message.toolCalls.length) {
-      console.error("Invalid message format: toolCalls missing");
+    // Validate message structure
+    if (
+      !message ||
+      message.type !== "end-of-call-report" ||
+      !message.analysis
+    ) {
+      console.error("Invalid message format: analysis missing");
       return res
         .status(400)
-        .send({ error: "Invalid message format: toolCalls missing" });
+        .send({ error: "Invalid message format: analysis missing" });
     }
 
-    // Extract the first toolCall (assuming one call per request)
-    const toolCall = message.toolCalls[0];
-    const functionDetails = toolCall.function;
+    // Extract structured data and transcript from the message
+    const { structuredData, transcript, startedAt } = message.analysis;
 
-    if (!functionDetails || !functionDetails.arguments) {
-      console.error("Invalid function call format: arguments missing");
-      return res
-        .status(400)
-        .send({ error: "Invalid function call format: arguments missing" });
+    if (!structuredData || !transcript) {
+      console.error(
+        "Invalid analysis format: structuredData or transcript missing"
+      );
+      return res.status(400).send({
+        error: "Invalid analysis format: structuredData or transcript missing",
+      });
     }
 
-    // Parse arguments (received as a JSON string)
-    const args = JSON.parse(functionDetails.arguments);
-
-    // Extract data from arguments
-    const { Name, DateofBirth, Request, Transcript } = args;
+    // Extract required fields from structuredData
+    const { Name, DateOfBirth, Request } = structuredData;
 
     // Validate required fields
-    if (!Name || !DateofBirth || !Request || !Transcript) {
-      console.error("Missing required fields in arguments");
+    if (!Name || !DateOfBirth || !Request) {
+      console.error("Missing required fields in structuredData");
       return res
         .status(400)
-        .send({ error: "Missing required fields in arguments" });
+        .send({ error: "Missing required fields in structuredData" });
     }
+
+    // Parse call date from 'startedAt' or use current timestamp as fallback
+    const callDate = startedAt
+      ? new Date(startedAt).toISOString()
+      : new Date().toISOString();
 
     // Add data to Firestore
     const docRef = await db.collection("Calls").add({
       Name,
-      "Date of Birth": DateofBirth,
+      "Date of Birth": DateOfBirth,
       Request,
-      Transcript,
+      Transcript: transcript,
+      "Call Date": callDate,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     });
 
