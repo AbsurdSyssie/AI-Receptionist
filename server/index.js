@@ -8,11 +8,16 @@ const app = express();
 app.use(bodyParser.json()); // Middleware to parse JSON payloads
 
 require("dotenv").config();
-const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT); // Load Firebase service account key from environment variable
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-});
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    }),
+  });
+}
 
 const db = admin.firestore();
 
