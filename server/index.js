@@ -29,33 +29,33 @@ app.post("/addCall", async (req, res) => {
     const { message } = req.body;
 
     // Validate message structure
-    if (
-      !message ||
-      message.type !== "end-of-call-report" ||
-      !message.analysis
-    ) {
-      console.error("Invalid message format: analysis missing");
-      return res
-        .status(400)
-        .send({ error: "Invalid message format: analysis missing" });
+    if (!message || message.type !== "end-of-call-report") {
+      console.error("Invalid message type or missing message object");
+      return res.status(400).send({ error: "Invalid message format" });
     }
 
-    // Extract structured data and transcript from the message
-    const { structuredData, transcript, startedAt } = message.analysis;
+    const { analysis, artifact } = message;
 
-    if (!structuredData || !transcript) {
-      console.error(
-        "Invalid analysis format: structuredData or transcript missing"
-      );
-      return res.status(400).send({
-        error: "Invalid analysis format: structuredData or transcript missing",
-      });
+    // Validate presence of analysis and artifact
+    if (!analysis || !artifact) {
+      console.error("Missing analysis or artifact in message");
+      return res.status(400).send({ error: "Missing analysis or artifact" });
+    }
+
+    // Extract structuredData and transcript
+    const { structuredData } = analysis;
+    const { transcript } = artifact;
+
+    if (!structuredData) {
+      console.error("Missing structuredData in analysis");
+      return res
+        .status(400)
+        .send({ error: "Missing structuredData in analysis" });
     }
 
     // Extract required fields from structuredData
     const { Name, DateOfBirth, Request } = structuredData;
 
-    // Validate required fields
     if (!Name || !DateOfBirth || !Request) {
       console.error("Missing required fields in structuredData");
       return res
@@ -63,17 +63,29 @@ app.post("/addCall", async (req, res) => {
         .send({ error: "Missing required fields in structuredData" });
     }
 
-    // Parse call date from 'startedAt' or use current timestamp as fallback
-    const callDate = startedAt
-      ? new Date(startedAt).toISOString()
+    if (!transcript) {
+      console.warn("Missing transcript in artifact");
+    }
+
+    // Parse call date from 'message.timestamp' or use current timestamp as fallback
+    const callDate = message.timestamp
+      ? new Date(message.timestamp).toISOString()
       : new Date().toISOString();
+
+    // Log the extracted details
+    console.log("Extracted Details:");
+    console.log(`Name: ${Name}`);
+    console.log(`Date of Birth: ${DateOfBirth}`);
+    console.log(`Request: ${Request}`);
+    console.log(`Call Date: ${callDate}`);
+    console.log(`Transcript: ${transcript || "Transcript not available"}`);
 
     // Add data to Firestore
     const docRef = await db.collection("Calls").add({
       Name,
       "Date of Birth": DateOfBirth,
       Request,
-      Transcript: transcript,
+      Transcript: transcript || "Transcript not available",
       "Call Date": callDate,
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     });
