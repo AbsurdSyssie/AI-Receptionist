@@ -1,0 +1,82 @@
+.app-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calls-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calls-table th,
+.calls-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.calls-table th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+}
+
+.calls-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.calls-table tr:hover {
+  background-color: #ddd;
+}
+
+.calls-table td {
+  color: #555;
+  text-align: left;
+}
+
+/* Make table responsive on smaller screens */
+@media screen and (max-width: 600px) {
+  .calls-table thead {
+    display: none;
+  }
+
+  .calls-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .calls-table td {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    padding: 8px;
+    position: relative;
+  }
+
+  .calls-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
