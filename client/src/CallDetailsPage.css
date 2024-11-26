@@ -1,9 +1,3 @@
-body {
-  background-color: #e9ecef;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333;
-}
-
 .call-details-container {
   padding: 40px;
   background-color: #f8f9fa;
@@ -11,6 +5,38 @@ body {
   max-width: 900px;
   margin: 40px auto;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.header-with-urgency {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.urgency-button {
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.urgency-button.life-threatening {
+  background-color: #000000; /* Proper black color */
+}
+
+.urgency-button.urgent {
+  background-color: #ff0000; /* Red for Urgent */
+}
+
+.urgency-button.same-day {
+  background-color: #ff9900; /* Orange for Same Day */
+}
+
+.urgency-button.routine {
+  background-color: #28a745; /* Green for Routine */
 }
 
 .call-card {
@@ -65,16 +91,4 @@ body {
 .back-button:hover {
   background-color: #218838;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.transcript-section {
-  margin-top: 20px;
-  padding: 15px;
-  background-color: #f1f1f1;
-  border-radius: 8px;
-}
-
-.transcript {
-  margin: 0;
-  color: #555;
 }

@@ -83,6 +83,21 @@ const CallDetailsPage = () => {
     });
   };
 
+  const getUrgencyClass = (urgency) => {
+    switch (urgency) {
+      case "Life Threatening":
+        return "life-threatening";
+      case "Urgent":
+        return "urgent";
+      case "Same Day":
+        return "same-day";
+      case "Routine":
+        return "routine";
+      default:
+        return "default";
+    }
+  };
+
   if (loading) {
     return <p>Loading call details...</p>;
   }
@@ -97,7 +112,18 @@ const CallDetailsPage = () => {
         Back
       </button>
       <div className="call-card">
-        <h1>Call Details</h1>
+        <div className="header-with-urgency">
+          <h1>Call Details</h1>
+          {call.Urgency && (
+            <button
+              className={`urgency-button ${getUrgencyClass(
+                call.Urgency.replace(/\s*\(.*?\)/, "")
+              )}`}
+            >
+              {call.Urgency.replace(/\s*\(.*?\)/, "")}
+            </button>
+          )}
+        </div>
         <p>
           <strong>Date:</strong> {call["Call Date"] || "N/A"}
         </p>

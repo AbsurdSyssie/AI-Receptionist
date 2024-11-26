@@ -140,6 +140,11 @@ const CallTablePage = () => {
               {sortConfig.key === "Request" &&
                 (sortConfig.direction === "asc" ? "▲" : "▼")}
             </th>
+            <th onClick={() => handleSort("Urgency")}>
+              Urgency{" "}
+              {sortConfig.key === "Urgency" &&
+                (sortConfig.direction === "asc" ? "▲" : "▼")}
+            </th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -155,6 +160,7 @@ const CallTablePage = () => {
                 <td>{call.Name || "N/A"}</td>
                 <td>{call["Date of Birth"] || "N/A"}</td>
                 <td>{call.Request || "N/A"}</td>
+                <td>{call.Urgency || "N/A"}</td>
                 <td>
                   <button
                     onClick={(e) => {
