@@ -87,6 +87,7 @@ app.post("/addCall", async (req, res) => {
       Request,
       Transcript: transcript || "Transcript not available",
       "Call Date": callDate,
+      tag: "unsorted", // Add 'tag' field set to 'unsorted'
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     });
 
