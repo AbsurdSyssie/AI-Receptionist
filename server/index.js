@@ -54,7 +54,7 @@ app.post("/addCall", async (req, res) => {
     }
 
     // Extract required fields from structuredData
-    const { Name, DateOfBirth, Request } = structuredData;
+    const { Name, DateOfBirth, Request, Urgency } = structuredData;
 
     if (!Name || !DateOfBirth || !Request) {
       console.error("Missing required fields in structuredData");
@@ -79,6 +79,7 @@ app.post("/addCall", async (req, res) => {
     console.log(`Request: ${Request}`);
     console.log(`Call Date: ${callDate}`);
     console.log(`Transcript: ${transcript || "Transcript not available"}`);
+    console.log(`Urgency: ${Urgency || "Transcript not available"}`);
 
     // Add data to Firestore
     const docRef = await db.collection("Calls").add({
@@ -87,7 +88,8 @@ app.post("/addCall", async (req, res) => {
       Request,
       Transcript: transcript || "Transcript not available",
       "Call Date": callDate,
-      tag: "unsorted", // Add 'tag' field set to 'unsorted'
+      tag: "unsorted",
+      Urgency: Urgency || "Not specified",
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
     });
 
