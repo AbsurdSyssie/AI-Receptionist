@@ -1,0 +1,864 @@
+Folder: Root
+  File: (firestore.rules) (Extension: .rules))
+    Content:
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+
+      // Allow access to the 'templates' subcollection
+      match /templates/{templateId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+        }
+      // Allow access to the 'notes' subcollection
+      match /notes/{noteId} {
+        allow read, write: if request.auth != null && request.auth.uid == userId;
+      }
+    }
+  }
+}
+
+
+  File: .firebaserc (Extension: )
+    Content:
+{
+  "projects": {
+    "default": "med-transcriber"
+  }
+}
+
+
+  File: .gitignore (Extension: )
+    Content:
+node_modules
+server/node_modules
+.env
+client/node_modules
+packages.json
+package-lock.json
+
+
+  File: firebase.json (Extension: .json)
+    Content:
+{
+  "firestore": {
+    "rules": "(firestore.rules)",
+    "indexes": "firestore.indexes.json"
+  }
+}
+
+
+  File: firestore.indexes.json (Extension: .json)
+    Content:
+{
+  "indexes": [],
+  "fieldOverrides": []
+}
+
+
+  File: package.json (Extension: .json)
+    Content:
+{
+  "name": "ai-receptionist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "react-router-dom": "^7.0.1"
+  }
+}
+
+  File: repo_flattened.txt (Extension: .txt)
+    Content:
+
+
+Folder: client
+  File: client\package.json (Extension: .json)
+    Content:
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "firebase": "^11.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
+
+
+  File: client\README.md (Extension: .md)
+    Content:
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+Folder: client\public
+  File: client\public\favicon.ico (Extension: .ico)
+    [Binary or non-text file, content not displayed]
+
+  File: client\public\index.html (Extension: .html)
+    Content:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
+
+
+  File: client\public\logo192.png (Extension: .png)
+    [Binary or non-text file, content not displayed]
+
+  File: client\public\logo512.png (Extension: .png)
+    [Binary or non-text file, content not displayed]
+
+  File: client\public\manifest.json (Extension: .json)
+    Content:
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
+
+
+  File: client\public\robots.txt (Extension: .txt)
+    Content:
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Disallow:
+
+
+Folder: client\src
+  File: client\src\App.css (Extension: .css)
+    Content:
+.app-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.calls-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calls-table th,
+.calls-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.calls-table th {
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  text-align: left;
+}
+
+.calls-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.calls-table tr:hover {
+  background-color: #ddd;
+}
+
+.calls-table td {
+  color: #555;
+  text-align: left;
+}
+
+/* Make table responsive on smaller screens */
+@media screen and (max-width: 600px) {
+  .calls-table thead {
+    display: none;
+  }
+
+  .calls-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .calls-table td {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    padding: 8px;
+    position: relative;
+  }
+
+  .calls-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+
+  File: client\src\App.js (Extension: .js)
+    Content:
+import React, { useEffect, useState } from "react";
+import { db } from "./firebase";
+import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import "./App.css"; // Import the CSS styles
+
+function App() {
+  const [calls, setCalls] = useState([]);
+  const [sortConfig, setSortConfig] = useState({
+    key: "callDateParsed",
+    direction: "desc",
+  });
+  const [selectedTranscript, setSelectedTranscript] = useState(null);
+
+  useEffect(() => {
+    const fetchCalls = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "Calls"));
+        const callsData = querySnapshot.docs.map((doc) => {
+          const data = doc.data();
+          return {
+            id: doc.id,
+            ...data,
+            callDateParsed: data["Call Date"]
+              ? new Date(data["Call Date"])
+              : null,
+          };
+        });
+        setCalls(callsData);
+      } catch (error) {
+        console.error("Error fetching calls:", error);
+      }
+    };
+
+    fetchCalls();
+  }, []);
+
+  useEffect(() => {
+    setCalls((prevCalls) => sortData(prevCalls, sortConfig));
+  }, [sortConfig]);
+
+  const sortData = (data, config) => {
+    const sortedData = [...data];
+    sortedData.sort((a, b) => {
+      if (config.key === "callDateParsed") {
+        if (!a.callDateParsed || !b.callDateParsed) {
+          return !a.callDateParsed ? 1 : -1;
+        }
+        return config.direction === "asc"
+          ? a.callDateParsed.getTime() - b.callDateParsed.getTime()
+          : b.callDateParsed.getTime() - a.callDateParsed.getTime();
+      }
+      if (a[config.key] < b[config.key]) {
+        return config.direction === "asc" ? -1 : 1;
+      }
+      if (a[config.key] > b[config.key]) {
+        return config.direction === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+    return sortedData;
+  };
+
+  const handleSort = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const callDocRef = doc(db, "Calls", id);
+      await deleteDoc(callDocRef);
+      setCalls((prevCalls) => prevCalls.filter((call) => call.id !== id));
+    } catch (error) {
+      console.error(
+        "Error deleting call: Missing or insufficient permissions.",
+        error
+      );
+    }
+  };
+
+  const handleOpenTranscript = (transcript) => {
+    setSelectedTranscript(transcript);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedTranscript(null);
+  };
+
+  return (
+    <div className="app-container">
+      <h1>Calls Table</h1>
+      <div className="table-container">
+        <table className="calls-table">
+          <thead>
+            <tr>
+              <th onClick={() => handleSort("callDateParsed")}>
+                Date{" "}
+                {sortConfig.key === "callDateParsed" &&
+                  (sortConfig.direction === "asc" ? "\u25B2" : "\u25BC")}
+              </th>
+              <th onClick={() => handleSort("Name")}>
+                Name{" "}
+                {sortConfig.key === "Name" &&
+                  (sortConfig.direction === "asc" ? "\u25B2" : "\u25BC")}
+              </th>
+              <th onClick={() => handleSort("Date of Birth")}>
+                Date of Birth{" "}
+                {sortConfig.key === "Date of Birth" &&
+                  (sortConfig.direction === "asc" ? "\u25B2" : "\u25BC")}
+              </th>
+              <th onClick={() => handleSort("Request")}>
+                Request{" "}
+                {sortConfig.key === "Request" &&
+                  (sortConfig.direction === "asc" ? "\u25B2" : "\u25BC")}
+              </th>
+              <th onClick={() => handleSort("Transcript")}>
+                Transcript{" "}
+                {sortConfig.key === "Transcript" &&
+                  (sortConfig.direction === "asc" ? "\u25B2" : "\u25BC")}
+              </th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {calls.map((call) => (
+              <tr key={call.id}>
+                <td>
+                  {call.callDateParsed
+                    ? call.callDateParsed.toLocaleString()
+                    : "N/A"}
+                </td>
+                <td>{call.Name || "N/A"}</td>
+                <td>{call["Date of Birth"] || "N/A"}</td>
+                <td>{call.Request || "N/A"}</td>
+                <td>
+                  {call.Transcript ? (
+                    <>
+                      {call.Transcript.substring(0, 30)}
+                      {call.Transcript.length > 30 ? "..." : ""}
+                      <button
+                        onClick={() => handleOpenTranscript(call.Transcript)}
+                      >
+                        View
+                      </button>
+                    </>
+                  ) : (
+                    "N/A"
+                  )}
+                </td>
+                <td>
+                  <button onClick={() => handleDelete(call.id)}>Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {selectedTranscript && (
+        <div
+          className="modal-overlay"
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+          onClick={handleCloseModal}
+        >
+          <div
+            className="modal-content"
+            style={{
+              backgroundColor: "white",
+              padding: "20px",
+              borderRadius: "8px",
+              maxWidth: "600px",
+              width: "90%",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div
+              className="modal-header"
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <h2>Transcript</h2>
+              <button
+                className="close-button"
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                }}
+                onClick={handleCloseModal}
+              >
+                &times;
+              </button>
+            </div>
+            <div
+              className="modal-body"
+              style={{ marginTop: "20px", whiteSpace: "pre-wrap" }}
+            >
+              <p>{selectedTranscript}</p>
+            </div>
+            <div
+              className="modal-footer"
+              style={{ marginTop: "20px", textAlign: "right" }}
+            >
+              <button
+                onClick={handleCloseModal}
+                style={{
+                  padding: "10px 20px",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
+
+
+  File: client\src\App.test.js (Extension: .js)
+    Content:
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+
+
+  File: client\src\firebase.js (Extension: .js)
+    Content:
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
+// import { getAnalytics } from "firebase/analytics"; // Remove this line if not using analytics
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyD0ZOHo8PSWEHR--yS022jPyGwLNIVzpuY",
+  authDomain: "med-transcriber.firebaseapp.com",
+  projectId: "med-transcriber",
+  storageBucket: "med-transcriber.appspot.com",
+  messagingSenderId: "918225360557",
+  appId: "1:918225360557:web:56a8d8a59270a0ff019824",
+  measurementId: "G-9J0EXDVZ7B",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app); // Remove this line if not using analytics
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+
+
+  File: client\src\index.css (Extension: .css)
+    Content:
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+  File: client\src\index.js (Extension: .js)
+    Content:
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+  File: client\src\logo.svg (Extension: .svg)
+    Content:
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 841.9 595.3"><g fill="#61DAFB"><path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9V78c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6V78.5c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zM421.2 430c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24 4.7 8 9.5 15.8 14.4 23.4zM420.7 163c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6 0-15.7 22.9-35.6 58.3-50.6 8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zM310 490c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6zM320.8 78.4z"/><circle cx="420.9" cy="296.5" r="45.7"/><path d="M520.5 78.1z"/></g></svg>
+
+  File: client\src\reportWebVitals.js (Extension: .js)
+    Content:
+const reportWebVitals = onPerfEntry => {
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
+      getCLS(onPerfEntry);
+      getFID(onPerfEntry);
+      getFCP(onPerfEntry);
+      getLCP(onPerfEntry);
+      getTTFB(onPerfEntry);
+    });
+  }
+};
+
+export default reportWebVitals;
+
+
+  File: client\src\setupTests.js (Extension: .js)
+    Content:
+// jest-dom adds custom jest matchers for asserting on DOM nodes.
+// allows you to do things like:
+// expect(element).toHaveTextContent(/react/i)
+// learn more: https://github.com/testing-library/jest-dom
+import '@testing-library/jest-dom';
+
+
+Folder: server
+  File: server\index.js (Extension: .js)
+    Content:
+// Import dependencies
+const express = require("express");
+const admin = require("firebase-admin");
+const bodyParser = require("body-parser");
+
+// Initialize Express app
+const app = express();
+app.use(bodyParser.json()); // Middleware to parse JSON payloads
+
+require("dotenv").config();
+
+if (!admin.apps.length) {
+  admin.initializeApp({
+    credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    }),
+  });
+}
+
+const db = admin.firestore();
+
+// Endpoint to receive POST requests and add data to Firestore
+app.post("/addCall", async (req, res) => {
+  try {
+    console.log("Received request body:", JSON.stringify(req.body, null, 2)); // Log the entire request body for debugging
+
+    const { message } = req.body;
+
+    // Validate message structure
+    if (!message || message.type !== "end-of-call-report") {
+      console.error("Invalid message type or missing message object");
+      return res.status(400).send({ error: "Invalid message format" });
+    }
+
+    const { analysis, artifact } = message;
+
+    // Validate presence of analysis and artifact
+    if (!analysis || !artifact) {
+      console.error("Missing analysis or artifact in message");
+      return res.status(400).send({ error: "Missing analysis or artifact" });
+    }
+
+    // Extract structuredData and transcript
+    const { structuredData } = analysis;
+    const { transcript } = artifact;
+
+    if (!structuredData) {
+      console.error("Missing structuredData in analysis");
+      return res
+        .status(400)
+        .send({ error: "Missing structuredData in analysis" });
+    }
+
+    // Extract required fields from structuredData
+    const { Name, DateOfBirth, Request } = structuredData;
+
+    if (!Name || !DateOfBirth || !Request) {
+      console.error("Missing required fields in structuredData");
+      return res
+        .status(400)
+        .send({ error: "Missing required fields in structuredData" });
+    }
+
+    if (!transcript) {
+      console.warn("Missing transcript in artifact");
+    }
+
+    // Parse call date from 'message.timestamp' or use current timestamp as fallback
+    const callDate = message.timestamp
+      ? new Date(message.timestamp).toISOString()
+      : new Date().toISOString();
+
+    // Log the extracted details
+    console.log("Extracted Details:");
+    console.log(`Name: ${Name}`);
+    console.log(`Date of Birth: ${DateOfBirth}`);
+    console.log(`Request: ${Request}`);
+    console.log(`Call Date: ${callDate}`);
+    console.log(`Transcript: ${transcript || "Transcript not available"}`);
+
+    // Add data to Firestore
+    const docRef = await db.collection("Calls").add({
+      Name,
+      "Date of Birth": DateOfBirth,
+      Request,
+      Transcript: transcript || "Transcript not available",
+      "Call Date": callDate,
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    });
+
+    console.log("Document successfully written with ID:", docRef.id);
+    res.status(200).send({ message: "Call added successfully", id: docRef.id });
+  } catch (error) {
+    console.error("Error adding call:", error);
+    res.status(500).send({ error: "Internal Server Error" });
+  }
+});
+
+// Start server
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+
+  File: server\package.json (Extension: .json)
+    Content:
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "firebase-admin": "^13.0.1"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
+
+
