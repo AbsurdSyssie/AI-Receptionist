@@ -1,10 +1,15 @@
-.table-container {
-  padding: 20px;
+/* General Container Styles */
+.table-container,
+.call-details-container {
+  padding: 40px;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 40px auto;
+  max-width: 900px;
 }
 
+/* Table Styles */
 .calls-table {
   width: 100%;
   border-collapse: collapse;
@@ -22,10 +27,11 @@
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .calls-table th:hover {
-  background-color: #45a049;
+  background-color: #2e7d32; /* Darker green on hover */
 }
 
 .calls-table tr:nth-child(even) {
@@ -33,22 +39,32 @@
 }
 
 .calls-table tr:hover {
-  background-color: #ddd;
+  background-color: #e6e6e6;
+  transition: background-color 0.3s ease;
 }
 
-button {
-  padding: 5px 10px;
+/* Button Styles */
+button,
+.back-button {
+  padding: 10px 20px;
   background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+button:hover,
+.back-button:hover {
+  background-color: #2e7d32; /* Darker green */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
 }
 
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -69,15 +85,7 @@ button:hover {
   width: 90%;
 }
 
-.calls-table tbody tr {
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.calls-table tbody tr:hover {
-  background-color: #f5f5f5;
-}
-
+/* Table Row Styles */
 .clickable-row {
   text-decoration: none;
   color: inherit;
@@ -99,9 +107,10 @@ button:hover {
 }
 
 .calls-table td button:hover {
-  background-color: #45a049;
+  background-color: #2e7d32;
 }
 
+/* Tabs Styles */
 .tabs {
   display: flex;
   gap: 10px;
@@ -110,31 +119,24 @@ button:hover {
 
 .tabs button {
   padding: 10px 20px;
-  background-color: #45a049;
+  background-color: #2e7d32; /* Darker green by default */
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s ease;
 }
 
 .tabs button.active {
-  background-color: #2a722e;
+  background-color: #4caf50; /* Bright green when active */
 }
 
 .tabs button:hover {
-  background-color: #59db5f;
+  background-color: #1b5e20; /* Even darker green on hover */
+  transform: translateY(-2px);
 }
 
-.call-details-container {
-  padding: 40px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  max-width: 900px;
-  margin: 40px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
+/* Call Card & Transcript Styles */
 .call-card {
   padding: 30px;
   margin-bottom: 30px;
@@ -176,23 +178,7 @@ button:hover {
   align-self: flex-end;
 }
 
-.back-button {
-  padding: 10px 20px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.back-button:hover {
-  background-color: #218838;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
+/* Actions Section Styles */
 .actions-section {
   margin-top: 30px;
 }
@@ -211,8 +197,8 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
   text-align: left;
 }
 
