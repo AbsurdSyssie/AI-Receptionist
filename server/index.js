@@ -45,7 +45,7 @@ app.post("/addCall", async (req, res) => {
     // Extract structuredData and transcript
     const { structuredData } = analysis;
     const { transcript } = artifact;
-    const { summary } = analysis.summary || "Summary not available";
+    const summary = analysis.summary || "Summary not available";
 
     if (!structuredData) {
       console.error("Missing structuredData in analysis");
