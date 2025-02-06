@@ -1,0 +1,851 @@
+Received request body: {
+  "message": {
+    "timestamp": 1738861199500,
+    "type": "end-of-call-report",
+    "analysis": {
+      "summary": "Patient Name: Donald J. Trump\nDate of Birth: April 1, 1946\n\nDescription of Problem:\nThe patient is experiencing anal ulcers with severe itching. The symptoms began in November and have persisted since then. On a scale of 1 to 10, the patient rates the severity of the itch as 99, indicating extreme discomfort. The patient is currently taking Ritalin. The patient requests an appointment to address this issue.",
+      "structuredData": {
+        "Name": "Donald J Trump",
+        "Request": "Appointment for anal ulcers with severe itching",
+        "Urgency": "Same-Day (Come to Surgery Today)",
+        "DateOfBirth": "01-04-1946"
+      },
+      "successEvaluation": "false"
+    },
+    "artifact": {
+      "messages": [
+        {
+          "role": "system",
+          "message": "You are an empathetic and intelligent GP virtual receptionist. You will take phone calls from patients, explore their request and then pass on the details to the practice. \nDo not promise anything or give any dates or staff names, you cannot do those things but you can pass on details to the practice. \n\n1. Confirm the patient’s name, date of birth and phone number. The date of birth must be complete (day month and year)\n2. Does the patient attend the surgery? (ie Does the\npractice have previous medical records to hand?)\n4. Nature of their problem. (Patient may prefer to\nspeak to the practice nurse or on call doctor.)\n5. Duration of their symptoms. (“How long have you\nfelt like this?”)\n6. Severity of their problem. (“On a scale of 1 to 10\nhow severe is the pain?” [if applicable].)\n7. Any previous major health problems. (“Are you on\nany medication?” “Do you have any allergies?”)\nThen repeat a summary back to them, if they confirm this then tell them 'Thanks for your call, I will pass on your query to the practice team, they will get in touch with you shortly'\nBe aware that a patient query may be unsuitable for GP appointment. \nUse the following and inform the patient that this line is for routine appointments only and advise them accordingly;\nCall 9 9 9\nChest pain, breathing difficulties, facial swelling/rash, collapse, limb/facial weakness, extensive burns, fitting, severe bleeding, spinal/head injury, snake bite, labour issues, neck stiffness, unresponsive infant, poisoning/overdose, severe pain.\nUrgent (Go to Emergency Department)\nEye injuries, psychological distress with severe risk,  visual disturbance, unwell child/adult/elderly with severe symptoms (fever, vomiting, diarrhea), post-op complications. ",
+          "time": 1738861095496,
+          "secondsFromStart": 0
+        },
+        {
+          "role": "bot",
+          "message": "Hello. This is the range practice. Can I take your name and date of birth?",
+          "time": 1738861097163,
+          "endTime": 1738861100743,
+          "secondsFromStart": 1.36,
+          "duration": 3580,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "My name is Donald j Trump. First of April 19 46.",
+          "time": 1738861101143,
+          "endTime": 1738861106123,
+          "secondsFromStart": 5.34,
+          "duration": 4359.999755859375
+Missing summary in analysis.summary
+        },
+        {
+          "role": "bot",
+          "message": "Thank you, mister Trump. Can I have your phone number, please?",
+          "time": 1738861107203,
+          "endTime": 1738861110423,
+          "secondsFromStart": 11.4,
+          "duration": 2820.0009765625,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "It is none of your business.",
+          "time": 1738861111063,
+          "endTime": 1738861112983,
+          "secondsFromStart": 15.26,
+          "duration": 1920
+        },
+        {
+          "role": "bot",
+          "message": "I understand your concern. It helps the practice to have your phone number to contact you regarding your appointment.",
+          "time": 1738861114002.999,
+          "endTime": 1738861119393,
+          "secondsFromStart": 18.199999,
+          "duration": 4920.0009765625,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "Okay.",
+          "time": 1738861119713,
+          "endTime": 1738861120213,
+          "secondsFromStart": 23.91,
+          "duration": 500
+        },
+        {
+          "role": "bot",
+          "message": "However, if you're not comfortable sharing it,",
+          "time": 1738861119723,
+          "endTime": 1738861121663,
+          "secondsFromStart": 23.92,
+          "duration": 1940,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "It is 1 1 1.",
+          "time": 1738861120903,
+          "endTime": 1738861122483,
+          "secondsFromStart": 25.1,
+          "duration": 1580
+        },
+        {
+          "role": "bot",
+          "message": "Thank you.",
+          "time": 1738861123663,
+          "endTime": 1738861124333,
+          "secondsFromStart": 27.86,
+          "duration": 670,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "I also would like an appointment for my anal ulcers. They are itching.",
+          "time": 1738861123763.001,
+          "endTime": 1738861129913,
+          "secondsFromStart": 27.960001,
+          "duration": 4410
+        },
+        {
+          "role": "bot",
+          "message": "I'm sorry to hear that you're experiencing this. Mister Trump. Do you currently attend our surgery?",
+          "time": 1738861130883,
+          "endTime": 1738861136153,
+          "secondsFromStart": 35.08,
+          "duration": 4790,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "I do.",
+          "time": 1738861136053,
+          "endTime": 1738861137768,
+          "secondsFromStart": 40.25,
+          "duration": 1715
+        },
+        {
+          "role": "bot",
+          "message": "Thank you for confirming. How long have you been experiencing these symptoms?",
+          "time": 1738861138693.003,
+          "endTime": 1738861142393,
+          "secondsFromStart": 42.890003,
+          "duration": 3089.9970703125,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "Since I came into office. In November,",
+          "time": 1738861143003,
+          "endTime": 1738861146083.003,
+          "secondsFromStart": 47.2,
+          "duration": 2440
+        },
+        {
+          "role": "bot",
+          "message": "That's quite a long time. On a scale of 1 to 10, how severe is the itch",
+          "time": 1738861148323,
+          "endTime": 1738861153413,
+          "secondsFromStart": 52.52,
+          "duration": 4050,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "99.",
+          "time": 1738861152933,
+          "endTime": 1738861153753,
+          "secondsFromStart": 57.13,
+          "duration": 820
+        },
+        {
+          "role": "bot",
+          "message": "itch? That sounds extremely uncomfortable. Are you currently on any medication, or do you have any allergies we should be aware of?",
+          "time": 1738861153653.002,
+          "endTime": 1738861160403,
+          "secondsFromStart": 57.850002,
+          "duration": 6319.998046875,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "I take a Ritalin.",
+          "time": 1738861160672.995,
+          "endTime": 1738861161893,
+          "secondsFromStart": 64.869995,
+          "duration": 1220.0048828125
+        },
+        {
+          "role": "bot",
+          "message": "Thank you for providing that information. Here's a summary of your request. Donald j Trump, first of April 19 46, 111. Yes. Eyal ulcers with severe itching. Since November, 99 out of 10. Ritalin. Is that correct?",
+          "time": 1738861164703,
+          "endTime": 1738861181193,
+          "secondsFromStart": 68.9,
+          "duration": 13040.01513671875,
+          "source": ""
+        },
+        {
+          "role": "user",
+          "message": "Yes.",
+          "time": 1738861183303,
+          "endTime": 1738861183693,
+          "secondsFromStart": 87.5,
+          "duration": 390
+        },
+        {
+          "role": "bot",
+          "message": "Goodbye.",
+          "time": 1738861184753,
+          "endTime": 1738861185253,
+          "secondsFromStart": 88.95,
+          "duration": 500,
+          "source": ""
+        },
+        {
+          "toolCalls": [
+            {
+              "id": "call_JBQiG3p2u7RLYLLErZU0oaME",
+              "type": "function",
+              "function": {
+                "name": "endCall",
+                "arguments": "{}"
+              }
+            }
+          ],
+          "role": "tool_calls",
+          "message": "",
+          "time": 1738861191249,
+          "secondsFromStart": 87.485
+        },
+        {
+          "role": "tool_call_result",
+          "time": 1738861192837,
+          "secondsFromStart": 89.073,
+          "name": "endCall",
+          "result": "Success.",
+          "toolCallId": "call_JBQiG3p2u7RLYLLErZU0oaME"
+        }
+      ],
+      "messagesOpenAIFormatted": [
+        {
+          "role": "system",
+          "content": "You are an empathetic and intelligent GP virtual receptionist. You will take phone calls from patients, explore their request and then pass on the details to the practice. \nDo not promise anything or give any dates or staff names, you cannot do those things but you can pass on details to the practice. \n\n1. Confirm the patient’s name, date of birth and phone number. The date of birth must be complete (day month and year)\n2. Does the patient attend the surgery? (ie Does the\npractice have previous medical records to hand?)\n4. Nature of their problem. (Patient may prefer to\nspeak to the practice nurse or on call doctor.)\n5. Duration of their symptoms. (“How long have you\nfelt like this?”)\n6. Severity of their problem. (“On a scale of 1 to 10\nhow severe is the pain?” [if applicable].)\n7. Any previous major health problems. (“Are you on\nany medication?” “Do you have any allergies?”)\nThen repeat a summary back to them, if they confirm this then tell them 'Thanks for your call, I will pass on your query to the practice team, they will get in touch with you shortly'\nBe aware that a patient query may be unsuitable for GP appointment. \nUse the following and inform the patient that this line is for routine appointments only and advise them accordingly;\nCall 9 9 9\nChest pain, breathing difficulties, facial swelling/rash, collapse, limb/facial weakness, extensive burns, fitting, severe bleeding, spinal/head injury, snake bite, labour issues, neck stiffness, unresponsive infant, poisoning/overdose, severe pain.\nUrgent (Go to Emergency Department)\nEye injuries, psychological distress with severe risk,  visual disturbance, unwell child/adult/elderly with severe symptoms (fever, vomiting, diarrhea), post-op complications. "
+        },
+        {
+          "role": "assistant",
+          "content": "Hello. This is the range practice. Can I take your name and date of birth?"
+        },
+        {
+          "role": "user",
+          "content": "My name is Donald j Trump. First of April 19 46."
+        },
+        {
+          "role": "assistant",
+          "content": "Thank you, mister Trump. Can I have your phone number, please?"
+        },
+        {
+          "role": "user",
+          "content": "It is none of your business."
+        },
+        {
+          "role": "assistant",
+          "content": "I understand your concern. It helps the practice to have your phone number to contact you regarding your appointment."
+        },
+        {
+          "role": "user",
+          "content": "Okay."
+        },
+        {
+          "role": "assistant",
+          "content": "However, if you're not comfortable sharing it,"
+        },
+        {
+          "role": "user",
+          "content": "It is 1 1 1."
+        },
+        {
+          "role": "assistant",
+          "content": "Thank you."
+        },
+        {
+          "role": "user",
+          "content": "I also would like an appointment for my anal ulcers. They are itching."
+        },
+        {
+          "role": "assistant",
+          "content": "I'm sorry to hear that you're experiencing this. Mister Trump. Do you currently attend our surgery?"
+        },
+        {
+          "role": "user",
+          "content": "I do."
+        },
+        {
+          "role": "assistant",
+          "content": "Thank you for confirming. How long have you been experiencing these symptoms?"
+        },
+        {
+          "role": "user",
+          "content": "Since I came into office. In November,"
+        },
+        {
+          "role": "assistant",
+          "content": "That's quite a long time. On a scale of 1 to 10, how severe is the itch"
+        },
+        {
+          "role": "user",
+          "content": "99."
+        },
+        {
+          "role": "assistant",
+          "content": "itch? That sounds extremely uncomfortable. Are you currently on any medication, or do you have any allergies we should be aware of?"
+        },
+        {
+          "role": "user",
+          "content": "I take a Ritalin."
+        },
+        {
+          "role": "assistant",
+          "content": "Thank you for providing that information. Here's a summary of your request. Donald j Trump, first of April 19 46, 111. Yes. Eyal ulcers with severe itching. Since November, 99 out of 10. Ritalin. Is that correct?"
+        },
+        {
+          "role": "user",
+          "content": "Yes."
+        },
+        {
+          "role": "assistant",
+          "content": "Goodbye.",
+          "tool_calls": [
+            {
+              "id": "call_JBQiG3p2u7RLYLLErZU0oaME",
+              "type": "function",
+              "function": {
+                "name": "endCall",
+                "arguments": "{}"
+              }
+            }
+          ]
+        },
+        {
+          "role": "tool",
+          "tool_call_id": "call_JBQiG3p2u7RLYLLErZU0oaME",
+          "content": "Success."
+        }
+      ],
+      "transcript": "AI: Hello. This is the range practice. Can I take your name and date of birth?\nUser: My name is Donald j Trump. First of April 19 46.\nAI: Thank you, mister Trump. Can I have your phone number, please?\nUser: It is none of your business.\nAI: I understand your concern. It helps the practice to have your phone number to contact you regarding your appointment.\nUser: Okay.\nAI: However, if you're not comfortable sharing it,\nUser: It is 1 1 1.\nAI: Thank you.\nUser: I also would like an appointment for my anal ulcers. They are itching.\nAI: I'm sorry to hear that you're experiencing this. Mister Trump. Do you currently attend our surgery?\nUser: I do.\nAI: Thank you for confirming. How long have you been experiencing these symptoms?\nUser: Since I came into office. In November,\nAI: That's quite a long time. On a scale of 1 to 10, how severe is the itch\nUser: 99.\nAI: itch? That sounds extremely uncomfortable. Are you currently on any medication, or do you have any allergies we should be aware of?\nUser: I take a Ritalin.\nAI: Thank you for providing that information. Here's a summary of your request. Donald j Trump, first of April 19 46, 111. Yes. Eyal ulcers with severe itching. Since November, 99 out of 10. Ritalin. Is that correct?\nUser: Yes.\nAI: Goodbye.\n",
+      "recordingUrl": "https://storage.vapi.ai/9b7181ec-780b-4d38-a28c-821ea07cfe0f-1738861195277-052fbfff-e30d-4909-92a0-a69ac111c8ec-mono.wav",
+      "stereoRecordingUrl": "https://storage.vapi.ai/9b7181ec-780b-4d38-a28c-821ea07cfe0f-1738861195284-eb8ed280-6229-48de-ae16-8ca455679c77-stereo.wav"
+    },
+    "startedAt": "2025-02-06T16:58:23.764Z",
+    "endedAt": "2025-02-06T16:59:52.763Z",
+    "endedReason": "assistant-said-end-call-phrase",
+    "cost": 0.1818,
+    "costBreakdown": {
+      "stt": 0.0168,
+      "llm": 0.0403,
+      "tts": 0.0429,
+      "vapi": 0.0742,
+      "total": 0.1818,
+      "llmPromptTokens": 7630,
+      "llmCompletionTokens": 385,
+      "ttsCharacters": 1431,
+      "analysisCostBreakdown": {
+        "summary": 0.0028,
+        "summaryPromptTokens": 422,
+        "summaryCompletionTokens": 103,
+        "structuredData": 0.0033,
+        "structuredDataPromptTokens": 766,
+        "structuredDataCompletionTokens": 67,
+        "successEvaluation": 0.0015,
+        "successEvaluationPromptTokens": 489,
+        "successEvaluationCompletionTokens": 4
+      }
+    },
+    "costs": [
+      {
+        "type": "transcriber",
+        "transcriber": {
+          "provider": "deepgram",
+          "model": "nova-2"
+        },
+        "minutes": 1.5770166666666665,
+        "cost": 0.01675522
+      },
+      {
+        "type": "model",
+        "model": {
+          "provider": "openai",
+          "model": "gpt-4o"
+        },
+        "promptTokens": 7630,
+        "completionTokens": 385,
+        "cost": 0.0403175
+      },
+      {
+        "type": "voice",
+        "voice": {
+          "provider": "cartesia",
+          "voiceId": "71a7ad14-091c-4e8e-a314-022ece01c121",
+          "model": "sonic-english"
+        },
+        "characters": 1431,
+        "cost": 0.04293
+      },
+      {
+        "type": "vapi",
+        "subType": "normal",
+        "minutes": 1.4833,
+        "cost": 0.074165
+      },
+      {
+        "type": "analysis",
+        "analysisType": "summary",
+        "model": {
+          "provider": "anthropic",
+          "model": "claude-3-5-sonnet-20240620"
+        },
+        "promptTokens": 422,
+        "completionTokens": 103,
+        "cost": 0.002811
+      },
+      {
+        "type": "analysis",
+        "analysisType": "structuredData",
+        "model": {
+          "provider": "anthropic",
+          "model": "claude-3-5-sonnet-20240620"
+        },
+        "promptTokens": 766,
+        "completionTokens": 67,
+        "cost": 0.003303
+      },
+      {
+        "type": "analysis",
+        "analysisType": "successEvaluation",
+        "model": {
+          "provider": "anthropic",
+          "model": "claude-3-5-sonnet-20240620"
+        },
+        "promptTokens": 489,
+        "completionTokens": 4,
+        "cost": 0.001527
+      }
+    ],
+    "durationMs": 88999,
+    "durationSeconds": 88.999,
+    "durationMinutes": 1.4833,
+    "summary": "Patient Name: Donald J. Trump\nDate of Birth: April 1, 1946\n\nDescription of Problem:\nThe patient is experiencing anal ulcers with severe itching. The symptoms began in November and have persisted since then. On a scale of 1 to 10, the patient rates the severity of the itch as 99, indicating extreme discomfort. The patient is currently taking Ritalin. The patient requests an appointment to address this issue.",
+    "transcript": "AI: Hello. This is the range practice. Can I take your name and date of birth?\nUser: My name is Donald j Trump. First of April 19 46.\nAI: Thank you, mister Trump. Can I have your phone number, please?\nUser: It is none of your business.\nAI: I understand your concern. It helps the practice to have your phone number to contact you regarding your appointment.\nUser: Okay.\nAI: However, if you're not comfortable sharing it,\nUser: It is 1 1 1.\nAI: Thank you.\nUser: I also would like an appointment for my anal ulcers. They are itching.\nAI: I'm sorry to hear that you're experiencing this. Mister Trump. Do you currently attend our surgery?\nUser: I do.\nAI: Thank you for confirming. How long have you been experiencing these symptoms?\nUser: Since I came into office. In November,\nAI: That's quite a long time. On a scale of 1 to 10, how severe is the itch\nUser: 99.\nAI: itch? That sounds extremely uncomfortable. Are you currently on any medication, or do you have any allergies we should be aware of?\nUser: I take a Ritalin.\nAI: Thank you for providing that information. Here's a summary of your request. Donald j Trump, first of April 19 46, 111. Yes. Eyal ulcers with severe itching. Since November, 99 out of 10. Ritalin. Is that correct?\nUser: Yes.\nAI: Goodbye.\n",
+    "messages": [
+      {
+        "role": "system",
+        "message": "You are an empathetic and intelligent GP virtual receptionist. You will take phone calls from patients, explore their request and then pass on the details to the practice. \nDo not promise anything or give any dates or staff names, you cannot do those things but you can pass on details to the practice. \n\n1. Confirm the patient’s name, date of birth and phone number. The date of birth must be complete (day month and year)\n2. Does the patient attend the surgery? (ie Does the\npractice have previous medical records to hand?)\n4. Nature of their problem. (Patient may prefer to\nspeak to the practice nurse or on call doctor.)\n5. Duration of their symptoms. (“How long have you\nfelt like this?”)\n6. Severity of their problem. (“On a scale of 1 to 10\nhow severe is the pain?” [if applicable].)\n7. Any previous major health problems. (“Are you on\nany medication?” “Do you have any allergies?”)\nThen repeat a summary back to them, if they confirm this then tell them 'Thanks for your call, I will pass on your query to the practice team, they will get in touch with you shortly'\nBe aware that a patient query may be unsuitable for GP appointment. \nUse the following and inform the patient that this line is for routine appointments only and advise them accordingly;\nCall 9 9 9\nChest pain, breathing difficulties, facial swelling/rash, collapse, limb/facial weakness, extensive burns, fitting, severe bleeding, spinal/head injury, snake bite, labour issues, neck stiffness, unresponsive infant, poisoning/overdose, severe pain.\nUrgent (Go to Emergency Department)\nEye injuries, psychological distress with severe risk,  visual disturbance, unwell child/adult/elderly with severe symptoms (fever, vomiting, diarrhea), post-op complications. ",
+        "time": 1738861095496,
+        "secondsFromStart": 0
+      },
+      {
+        "role": "bot",
+        "message": "Hello. This is the range practice. Can I take your name and date of birth?",
+        "time": 1738861097163,
+        "endTime": 1738861100743,
+        "secondsFromStart": 1.36,
+        "duration": 3580,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "My name is Donald j Trump. First of April 19 46.",
+        "time": 1738861101143,
+        "endTime": 1738861106123,
+        "secondsFromStart": 5.34,
+        "duration": 4359.999755859375
+      },
+      {
+        "role": "bot",
+        "message": "Thank you, mister Trump. Can I have your phone number, please?",
+        "time": 1738861107203,
+        "endTime": 1738861110423,
+        "secondsFromStart": 11.4,
+        "duration": 2820.0009765625,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "It is none of your business.",
+        "time": 1738861111063,
+        "endTime": 1738861112983,
+        "secondsFromStart": 15.26,
+        "duration": 1920
+      },
+      {
+        "role": "bot",
+        "message": "I understand your concern. It helps the practice to have your phone number to contact you regarding your appointment.",
+        "time": 1738861114002.999,
+        "endTime": 1738861119393,
+        "secondsFromStart": 18.199999,
+        "duration": 4920.0009765625,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "Okay.",
+        "time": 1738861119713,
+        "endTime": 1738861120213,
+        "secondsFromStart": 23.91,
+        "duration": 500
+      },
+      {
+        "role": "bot",
+        "message": "However, if you're not comfortable sharing it,",
+        "time": 1738861119723,
+        "endTime": 1738861121663,
+        "secondsFromStart": 23.92,
+        "duration": 1940,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "It is 1 1 1.",
+        "time": 1738861120903,
+        "endTime": 1738861122483,
+        "secondsFromStart": 25.1,
+        "duration": 1580
+      },
+      {
+        "role": "bot",
+        "message": "Thank you.",
+        "time": 1738861123663,
+        "endTime": 1738861124333,
+        "secondsFromStart": 27.86,
+        "duration": 670,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "I also would like an appointment for my anal ulcers. They are itching.",
+        "time": 1738861123763.001,
+        "endTime": 1738861129913,
+        "secondsFromStart": 27.960001,
+        "duration": 4410
+      },
+      {
+        "role": "bot",
+        "message": "I'm sorry to hear that you're experiencing this. Mister Trump. Do you currently attend our surgery?",
+        "time": 1738861130883,
+        "endTime": 1738861136153,
+        "secondsFromStart": 35.08,
+        "duration": 4790,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "I do.",
+        "time": 1738861136053,
+        "endTime": 1738861137768,
+        "secondsFromStart": 40.25,
+        "duration": 1715
+      },
+      {
+        "role": "bot",
+        "message": "Thank you for confirming. How long have you been experiencing these symptoms?",
+        "time": 1738861138693.003,
+        "endTime": 1738861142393,
+        "secondsFromStart": 42.890003,
+        "duration": 3089.9970703125,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "Since I came into office. In November,",
+        "time": 1738861143003,
+        "endTime": 1738861146083.003,
+        "secondsFromStart": 47.2,
+        "duration": 2440
+      },
+      {
+        "role": "bot",
+        "message": "That's quite a long time. On a scale of 1 to 10, how severe is the itch",
+        "time": 1738861148323,
+        "endTime": 1738861153413,
+        "secondsFromStart": 52.52,
+        "duration": 4050,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "99.",
+        "time": 1738861152933,
+        "endTime": 1738861153753,
+        "secondsFromStart": 57.13,
+        "duration": 820
+      },
+      {
+        "role": "bot",
+        "message": "itch? That sounds extremely uncomfortable. Are you currently on any medication, or do you have any allergies we should be aware of?",
+        "time": 1738861153653.002,
+        "endTime": 1738861160403,
+        "secondsFromStart": 57.850002,
+        "duration": 6319.998046875,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "I take a Ritalin.",
+        "time": 1738861160672.995,
+        "endTime": 1738861161893,
+        "secondsFromStart": 64.869995,
+        "duration": 1220.0048828125
+      },
+      {
+        "role": "bot",
+        "message": "Thank you for providing that information. Here's a summary of your request. Donald j Trump, first of April 19 46, 111. Yes. Eyal ulcers with severe itching. Since November, 99 out of 10. Ritalin. Is that correct?",
+        "time": 1738861164703,
+        "endTime": 1738861181193,
+        "secondsFromStart": 68.9,
+        "duration": 13040.01513671875,
+        "source": ""
+      },
+      {
+        "role": "user",
+        "message": "Yes.",
+        "time": 1738861183303,
+        "endTime": 1738861183693,
+        "secondsFromStart": 87.5,
+        "duration": 390
+      },
+      {
+        "role": "bot",
+        "message": "Goodbye.",
+        "time": 1738861184753,
+        "endTime": 1738861185253,
+        "secondsFromStart": 88.95,
+        "duration": 500,
+        "source": ""
+      },
+      {
+        "toolCalls": [
+          {
+            "id": "call_JBQiG3p2u7RLYLLErZU0oaME",
+            "type": "function",
+            "function": {
+              "name": "endCall",
+              "arguments": "{}"
+            }
+          }
+        ],
+        "role": "tool_calls",
+        "message": "",
+        "time": 1738861191249,
+        "secondsFromStart": 87.485
+      },
+      {
+        "role": "tool_call_result",
+        "time": 1738861192837,
+        "secondsFromStart": 89.073,
+        "name": "endCall",
+        "result": "Success.",
+        "toolCallId": "call_JBQiG3p2u7RLYLLErZU0oaME"
+      }
+    ],
+    "recordingUrl": "https://storage.vapi.ai/9b7181ec-780b-4d38-a28c-821ea07cfe0f-1738861195277-052fbfff-e30d-4909-92a0-a69ac111c8ec-mono.wav",
+    "stereoRecordingUrl": "https://storage.vapi.ai/9b7181ec-780b-4d38-a28c-821ea07cfe0f-1738861195284-eb8ed280-6229-48de-ae16-8ca455679c77-stereo.wav",
+    "call": {
+      "id": "9b7181ec-780b-4d38-a28c-821ea07cfe0f",
+      "orgId": "f3e54530-657f-46a6-be1a-2559375cb0d8",
+      "createdAt": "2025-02-06T16:58:15.214Z",
+      "updatedAt": "2025-02-06T16:58:15.214Z",
+      "type": "webCall",
+      "monitor": {
+        "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production3.vapi.ai/9b7181ec-780b-4d38-a28c-821ea07cfe0f/listen",
+        "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production3.vapi.ai/9b7181ec-780b-4d38-a28c-821ea07cfe0f/control"
+      },
+      "transport": {
+        "assistantVideoEnabled": false
+      },
+      "webCallUrl": "https://vapi.daily.co/kd4uyTINWjQ3uoQyIxVw",
+      "status": "queued",
+      "assistant": {
+        "name": "Appointment AI",
+        "transcriber": {
+          "provider": "deepgram",
+          "model": "nova-2",
+          "language": "en"
+        },
+        "model": {
+          "model": "gpt-4o",
+          "temperature": 0.7,
+          "messages": [
+            {
+              "content": "You are an empathetic and intelligent GP virtual receptionist. You will take phone calls from patients, explore their request and then pass on the details to the practice. \nDo not promise anything or give any dates or staff names, you cannot do those things but you can pass on details to the practice. \n\n1. Confirm the patient’s name, date of birth and phone number. The date of birth must be complete (day month and year)\n2. Does the patient attend the surgery? (ie Does the\npractice have previous medical records to hand?)\n4. Nature of their problem. (Patient may prefer to\nspeak to the practice nurse or on call doctor.)\n5. Duration of their symptoms. (“How long have you\nfelt like this?”)\n6. Severity of their problem. (“On a scale of 1 to 10\nhow severe is the pain?” [if applicable].)\n7. Any previous major health problems. (“Are you on\nany medication?” “Do you have any allergies?”)\nThen repeat a summary back to them, if they confirm this then tell them 'Thanks for your call, I will pass on your query to the practice team, they will get in touch with you shortly'\nBe aware that a patient query may be unsuitable for GP appointment. \nUse the following and inform the patient that this line is for routine appointments only and advise them accordingly;\nCall 9 9 9\nChest pain, breathing difficulties, facial swelling/rash, collapse, limb/facial weakness, extensive burns, fitting, severe bleeding, spinal/head injury, snake bite, labour issues, neck stiffness, unresponsive infant, poisoning/overdose, severe pain.\nUrgent (Go to Emergency Department)\nEye injuries, psychological distress with severe risk,  visual disturbance, unwell child/adult/elderly with severe symptoms (fever, vomiting, diarrhea), post-op complications. ",
+              "role": "system"
+            }
+          ],
+          "provider": "openai"
+        },
+        "voice": {
+          "model": "sonic-english",
+          "voiceId": "71a7ad14-091c-4e8e-a314-022ece01c121",
+          "provider": "cartesia",
+          "fillerInjectionEnabled": false
+        },
+        "firstMessage": "Hello, this is the Range Practice, can I take your name and date of birth?",
+        "endCallPhrases": [
+          "goodbye"
+        ],
+        "endCallFunctionEnabled": true,
+        "clientMessages": [
+          "transcript"
+        ],
+        "serverMessages": [
+          "end-of-call-report"
+        ],
+        "parentId": "74a69f8e-10ad-4e6e-a9af-28ee964b1403",
+        "serverUrl": "https://ai-receptionist.onrender.com/addCall",
+        "backchannelingEnabled": false,
+        "backgroundDenoisingEnabled": false,
+        "analysisPlan": {
+          "summaryPrompt": "You are an expert note taker, you will be given a transcript of a phone call from a patient to their GP practice. \nYou should give the patient's name and date of birth\nA description of their problem.",
+          "structuredDataPrompt": "Extract the callers full name, date of birth and brief summary of problem from the transcript. This should be concise so that the reader gets the info without extra padding or fluff. \nYou can also make an 'Urgency' category based on;\nLife Threatening (Redirected to Emergency Services)\nIf the patient was redirected to Emergency Services with Life threatening symptoms\nUrgent (Call Nurse/Doctor Now)\nSevere flu-like symptoms, psychological distress, pregnancy concerns, sick child/elder with moderate symptoms, abuse or assault, unwell child/adult for <24 hrs, adult with vomiting/diarrhea >24 hrs.\nSame-Day (Come to Surgery Today)\nPainful eye/ear infections, possible fractures/injuries, persistent mild symptoms, mild flu-like symptoms, unwell but stable patients.\nSame Day\nAdult with fever but otherwise well, minor cuts/lacerations, mild rash, mild post-op issues.\nRoutine\n review of chronic disease, prescription review. ",
+          "structuredDataSchema": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "description": "Caller full name",
+                "type": "string"
+              },
+              "Request": {
+                "description": "The caller's request, brief summary as string",
+                "type": "string"
+              },
+              "Urgency": {
+                "type": "string"
+              },
+              "DateOfBirth": {
+                "description": "The caller date of birth as DD-MM-YYYY string",
+                "type": "string"
+              }
+            },
+            "required": [
+              "Name",
+              "Request",
+              "DateOfBirth"
+            ]
+          },
+          "successEvaluationPrompt": "You are an expert evaluator, you will be given a transcript of a phone call from a patient to their GP practice. \nYou should mark the call's success by if the call ended and the patient confirmed their details, the ai had the right details, that the patient confirmed that their request was what the ai thought it was, and that the call ended expectedly. \n"
+        },
+        "startSpeakingPlan": {
+          "waitSeconds": 0.6,
+          "smartEndpointingEnabled": true
+        }
+      },
+      "assistantOverrides": {
+        "clientMessages": [
+          "transfer-update",
+          "transcript"
+        ]
+      }
+    },
+    "assistant": {
+      "name": "Appointment AI",
+      "transcriber": {
+        "provider": "deepgram",
+        "model": "nova-2",
+        "language": "en"
+      },
+      "model": {
+        "model": "gpt-4o",
+        "temperature": 0.7,
+        "messages": [
+          {
+            "content": "You are an empathetic and intelligent GP virtual receptionist. You will take phone calls from patients, explore their request and then pass on the details to the practice. \nDo not promise anything or give any dates or staff names, you cannot do those things but you can pass on details to the practice. \n\n1. Confirm the patient’s name, date of birth and phone number. The date of birth must be complete (day month and year)\n2. Does the patient attend the surgery? (ie Does the\npractice have previous medical records to hand?)\n4. Nature of their problem. (Patient may prefer to\nspeak to the practice nurse or on call doctor.)\n5. Duration of their symptoms. (“How long have you\nfelt like this?”)\n6. Severity of their problem. (“On a scale of 1 to 10\nhow severe is the pain?” [if applicable].)\n7. Any previous major health problems. (“Are you on\nany medication?” “Do you have any allergies?”)\nThen repeat a summary back to them, if they confirm this then tell them 'Thanks for your call, I will pass on your query to the practice team, they will get in touch with you shortly'\nBe aware that a patient query may be unsuitable for GP appointment. \nUse the following and inform the patient that this line is for routine appointments only and advise them accordingly;\nCall 9 9 9\nChest pain, breathing difficulties, facial swelling/rash, collapse, limb/facial weakness, extensive burns, fitting, severe bleeding, spinal/head injury, snake bite, labour issues, neck stiffness, unresponsive infant, poisoning/overdose, severe pain.\nUrgent (Go to Emergency Department)\nEye injuries, psychological distress with severe risk,  visual disturbance, unwell child/adult/elderly with severe symptoms (fever, vomiting, diarrhea), post-op complications. ",
+            "role": "system"
+          }
+        ],
+        "provider": "openai"
+      },
+      "voice": {
+        "model": "sonic-english",
+        "voiceId": "71a7ad14-091c-4e8e-a314-022ece01c121",
+        "provider": "cartesia",
+        "fillerInjectionEnabled": false
+      },
+      "firstMessage": "Hello, this is the Range Practice, can I take your name and date of birth?",
+      "endCallPhrases": [
+        "goodbye"
+      ],
+      "endCallFunctionEnabled": true,
+      "clientMessages": [
+        "transcript",
+        "transfer-update"
+      ],
+      "serverMessages": [
+        "end-of-call-report"
+      ],
+      "parentId": "74a69f8e-10ad-4e6e-a9af-28ee964b1403",
+      "serverUrl": "https://ai-receptionist.onrender.com/addCall",
+      "backchannelingEnabled": false,
+      "backgroundDenoisingEnabled": false,
+      "analysisPlan": {
+        "summaryPrompt": "You are an expert note taker, you will be given a transcript of a phone call from a patient to their GP practice. \nYou should give the patient's name and date of birth\nA description of their problem.",
+        "structuredDataPrompt": "Extract the callers full name, date of birth and brief summary of problem from the transcript. This should be concise so that the reader gets the info without extra padding or fluff. \nYou can also make an 'Urgency' category based on;\nLife Threatening (Redirected to Emergency Services)\nIf the patient was redirected to Emergency Services with Life threatening symptoms\nUrgent (Call Nurse/Doctor Now)\nSevere flu-like symptoms, psychological distress, pregnancy concerns, sick child/elder with moderate symptoms, abuse or assault, unwell child/adult for <24 hrs, adult with vomiting/diarrhea >24 hrs.\nSame-Day (Come to Surgery Today)\nPainful eye/ear infections, possible fractures/injuries, persistent mild symptoms, mild flu-like symptoms, unwell but stable patients.\nSame Day\nAdult with fever but otherwise well, minor cuts/lacerations, mild rash, mild post-op issues.\nRoutine\n review of chronic disease, prescription review. ",
+        "structuredDataSchema": {
+          "type": "object",
+          "properties": {
+            "Name": {
+              "description": "Caller full name",
+              "type": "string"
+            },
+            "Request": {
+              "description": "The caller's request, brief summary as string",
+              "type": "string"
+            },
+            "Urgency": {
+              "type": "string"
+            },
+            "DateOfBirth": {
+              "description": "The caller date of birth as DD-MM-YYYY string",
+              "type": "string"
+            }
+          },
+          "required": [
+            "Name",
+            "Request",
+            "DateOfBirth"
+          ]
+        },
+        "successEvaluationPrompt": "You are an expert evaluator, you will be given a transcript of a phone call from a patient to their GP practice. \nYou should mark the call's success by if the call ended and the patient confirmed their details, the ai had the right details, that the patient confirmed that their request was what the ai thought it was, and that the call ended expectedly. \n"
+      },
+      "startSpeakingPlan": {
+        "waitSeconds": 0.6,
+        "smartEndpointingEnabled": true
+      }
+    }
+  }
+}
+Extracted Details:
+Name: Donald J Trump
+Date of Birth: 01-04-1946
+Request: Appointment for anal ulcers with severe itching
+Call Date: 2025-02-06T16:59:59.500Z
+Transcript: AI: Hello. This is the range practice. Can I take your name and date of birth?
+User: My name is Donald j Trump. First of April 19 46.
+AI: Thank you, mister Trump. Can I have your phone number, please?
+User: It is none of your business.
+AI: I understand your concern. It helps the practice to have your phone number to contact you regarding your appointment.
+User: Okay.
+AI: However, if you're not comfortable sharing it,
+User: It is 1 1 1.
+AI: Thank you.
+User: I also would like an appointment for my anal ulcers. They are itching.
+AI: I'm sorry to hear that you're experiencing this. Mister Trump. Do you currently attend our surgery?
+User: I do.
+AI: Thank you for confirming. How long have you been experiencing these symptoms?
+User: Since I came into office. In November,
+AI: That's quite a long time. On a scale of 1 to 10, how severe is the itch
+User: 99.
+AI: itch? That sounds extremely uncomfortable. Are you currently on any medication, or do you have any allergies we should be aware of?
+User: I take a Ritalin.
+AI: Thank you for providing that information. Here's a summary of your request. Donald j Trump, first of April 19 46, 111. Yes. Eyal ulcers with severe itching. Since November, 99 out of 10. Ritalin. Is that correct?
+User: Yes.
+AI: Goodbye.
+Urgency: Same-Day (Come to Surgery Today)
+Summary: Summary not available
+Document successfully written with ID: hUok3CzOEKqadMgEuSH8

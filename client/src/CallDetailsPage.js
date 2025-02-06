@@ -136,6 +136,10 @@ const CallDetailsPage = () => {
         <p>
           <strong>Request:</strong> {call.Request || "N/A"}
         </p>
+        {/* New Summary section */}
+        <p>
+          <strong>Summary:</strong> {call.Summary || "N/A"}
+        </p>
         <div className="transcript-section">
           <h2>Transcript</h2>
           <div className="transcript-container">
@@ -149,30 +153,6 @@ const CallDetailsPage = () => {
             </p>
           </div>
         )}
-      </div>
-      <div className="actions-section">
-        <h2>Actions</h2>
-        <div className="actions-cards">
-          {actions.length > 0 ? (
-            actions.map((action) => (
-              <button
-                key={action.id}
-                className="action-card"
-                onClick={() => handleActionClick(action.id, action.Name)}
-              >
-                <h3>{action.Name}</h3>
-                <p>
-                  <strong>Team:</strong> {action.Team}
-                </p>
-                <p>
-                  <strong>Description:</strong> {action.Description}
-                </p>
-              </button>
-            ))
-          ) : (
-            <p>No actions available.</p>
-          )}
-        </div>
       </div>
     </div>
   );

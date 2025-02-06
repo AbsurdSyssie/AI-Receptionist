@@ -45,7 +45,7 @@ app.post("/addCall", async (req, res) => {
     // Extract structuredData and transcript
     const { structuredData } = analysis;
     const { transcript } = artifact;
-    const { summary } = analysis.summary;
+    const { summary } = analysis.summary || "Summary not available";
 
     if (!structuredData) {
       console.error("Missing structuredData in analysis");
@@ -67,7 +67,6 @@ app.post("/addCall", async (req, res) => {
     if (!transcript) {
       console.warn("Missing transcript in artifact");
     }
-    if (!summary) console.warn("Missing summary in analysis.summary");
 
     // Parse call date from 'message.timestamp' or use current timestamp as fallback
     const callDate = message.timestamp
@@ -91,6 +90,7 @@ app.post("/addCall", async (req, res) => {
       Request,
       Transcript: transcript || "Transcript not available",
       "Call Date": callDate,
+      Summary: summary,
       tag: "unsorted",
       Urgency: Urgency || "Not specified",
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
